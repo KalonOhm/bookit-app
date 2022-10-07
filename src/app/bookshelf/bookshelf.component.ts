@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../shared/book/book.model';
+import { BookshelfService } from './bookshelf.service';
 
 @Component({
   selector: 'app-bookshelf',
@@ -7,15 +8,18 @@ import { Book } from '../shared/book/book.model';
   styleUrls: ['./bookshelf.component.css']
 })
 export class BookshelfComponent implements OnInit {
-  selectedBook: Book;
+  selectedBook: Book = new Book('', '', '', '');
 
 
-  constructor() { }
+  constructor(
+    private bookshelfService: BookshelfService
+  ) { }
 
   ngOnInit(): void {
+    this.bookshelfService.bookSelected.subscribe((book: Book)=> this.selectedBook = book)
   }
 
-  
+
 
 
 }

@@ -1,35 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { BookshelfService } from 'src/app/bookshelf/bookshelf.service';
 import { Book } from 'src/app/shared/book/book.model';
+import { LibraryService } from '../library.service';
+
 @Component({
   selector: 'app-book-results',
   templateUrl: './book-results.component.html',
   styleUrls: ['./book-results.component.css']
 })
 export class BookResultsComponent implements OnInit {
-  allBooks: Book[] = [
-    new Book(
-      'Fahrenheit 451',
-      'Ray Bradbury',
-      'Fiction',
-      'https://source.unsplash.com/160x160/?mystery,book'
-      ),
-    new Book(
-      'Book of Besting',
-      'Bill Bilder',
-      'Self-Help',
-      'https://source.unsplash.com/150x160/?mystery,book'
-    ),
-    new Book(
-      'Celcius 232.77',
-      'Brad Raybury',
-      'Political Science',
-      'https://source.unsplash.com/170x170/?mystery,book'
-      ),
-  ]
+  allBooks: Book[] = [];
 
-  constructor() { }
+  constructor(
+    private libraryService: LibraryService,
+    private bookshelfService: BookshelfService,
+  ) {}
 
   ngOnInit(): void {
+    this.allBooks = this.libraryService.getBooks();
+  }
+
+  onSaveBook(book: Book) {
+    return this.bookshelfService.saveBook(book);
   }
 
 }

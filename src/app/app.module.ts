@@ -11,6 +11,7 @@ import { BookComponent } from './shared/book/book.component';
 import { BookResultsComponent } from './library/book-results/book-results.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { FormsModule } from '@angular/forms';
+import { DropdownDirective } from './shared/directives/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     BookComponent,
     BookResultsComponent,
     NavigationComponent,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,
