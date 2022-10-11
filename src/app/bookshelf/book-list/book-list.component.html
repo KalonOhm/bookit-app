@@ -1,17 +1,10 @@
-<div class="row mb-3" >
-  <div
-  class="col-md-12"
-  *ngFor="let bookElement of myBooks; let i = index"
-  >
-    <app-book
-
-      [book]="bookElement"
-
-    ></app-book>
+<div class="row mb-3">
+  <div class="col-md-12" *ngFor="let bookElement of myBooks; let i = index">
+    <app-book [book]="bookElement" [idx]="i"></app-book>
     <button
-    class="float-right"
-    style="border:none; font-size: 16px;"
-    (click)="onRemoveBook(i)"
+      class="btn btn-primary"
+      style="border: none; font-size: 16px"
+      (click)="onRemoveBook(i)"
     >
       &minus;
     </button>

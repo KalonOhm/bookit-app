@@ -69,7 +69,9 @@ private myBooks: Book[] = [
   }
 
   //Update
-
+  getBook(idx: number){
+    return this.getBooks()[idx]
+  }
 
 
 

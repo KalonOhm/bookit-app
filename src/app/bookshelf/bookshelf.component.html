@@ -4,12 +4,13 @@
     <app-book-list></app-book-list>
   </div>
   <div class="col-md-6">
-    <app-book-details
+    <router-outlet></router-outlet>
+    <!-- <app-book-details
       *ngIf="selectedBook; else infoText"
       [book]="selectedBook"
     ></app-book-details>
     <ng-template #infoText>
       <p>Please Select a Book!</p>
-    </ng-template>
+    </ng-template> -->
   </div>
 </div>

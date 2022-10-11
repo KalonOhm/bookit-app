@@ -6,12 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageDisplayed = "bookshelf"
+  // pageDisplayed = "bookshelf"
   title = 'bookit-app';
 
-  onNavigatePage(page: string) {
-    this.pageDisplayed = page;
-  }
+  // onNavigatePage(page: string) {
+  //   this.pageDisplayed = page;
+  // }
 
 
 
