@@ -39,5 +39,5 @@ export class BookListComponent implements OnInit {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
-  
+
 }
