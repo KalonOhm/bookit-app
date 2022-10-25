@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { LibraryService } from '../library.service';
 
 @Component({
   selector: 'app-book-search',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient,
+    private library: LibraryService) { }
 
   ngOnInit(): void {
   }
 
+  onFetchBooks(searchQuery: string) {
+    console.log("Clicked Fetch")
+    console.log({searchQuery})
+
+    const formattedQuery = searchQuery.split(' ').join('+').toLowerCase();
+
+    this.http.get(`http://openlibrary.org/search/json?q=${formattedQuery}`)
+    .subscribe((searchResponse) => {
+      console.log('Seach Response: ', searchResponse)
+    })
+  }
 }

@@ -78,4 +78,19 @@ export class BookshelfService {
       this.bookListChanged.next(this.myBooks.slice());
     }
   }
+
+  addBook(book: Book) {
+    this.myBooks.push(book);
+    this.bookListChanged.next(this.myBooks.slice());
+  }
+
+  updateBook(idx: number, updatedBook: Book) {
+    this.myBooks[idx] = updatedBook;
+    this.bookListChanged.next(this.myBooks.slice());
+  }
+
+  setBooks(books: Book[]) {
+    this.myBooks = books;
+    this.bookListChanged.next(this.getBooks());
+  }
 }

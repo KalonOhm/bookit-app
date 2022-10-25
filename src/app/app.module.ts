@@ -18,6 +18,8 @@ import { BookshelfEditorComponent } from './bookshelf/bookshelf-editor/bookshelf
 import { NotificationComponent } from './shared/notification/notification.component';
 import { BookFormTdComponent } from './bookshelf/book-form-td/book-form-td.component';
 import { BookFormReactiveComponent } from './bookshelf/book-form-reactive/book-form-reactive.component';
+import { SortBooksPipe } from './shared/pipes/sortBooks';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -36,10 +38,12 @@ import { BookFormReactiveComponent } from './bookshelf/book-form-reactive/book-f
     NotificationComponent,
     BookFormTdComponent,
     BookFormReactiveComponent,
+    SortBooksPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
   ],

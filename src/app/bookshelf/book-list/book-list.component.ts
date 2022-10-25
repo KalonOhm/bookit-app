@@ -11,7 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router'
 export class BookListComponent implements OnInit {
   @Output() currentSelectedBook = new EventEmitter<Book>();
 
-
+  sortSwitcher = true;
+  sortField = 'author';
   myBooks: Book[] = [
 
 ]
@@ -39,5 +40,15 @@ export class BookListComponent implements OnInit {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
+  onSort() {
+    this.sortSwitcher = !this.sortSwitcher;
 
+    if (this.sortSwitcher) {
+      this.sortField = 'author';
+    } else {
+      this.sortField = 'title';
+    }
+  }
+
+  
 }

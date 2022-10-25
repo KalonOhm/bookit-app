@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { HttpServiceService } from '../http/http.service';
 
 
 @Component({
@@ -13,9 +14,16 @@ export class NavigationComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private httpService: HttpServiceService) { }
 
   ngOnInit(): void {
   }
 
+  onSaveData() {
+    this.httpService.saveBooksToFirebase()
+  }
+
+  onFetchData() {
+    this.httpService.fetchBooksFromFirebase()
+  }
 }
