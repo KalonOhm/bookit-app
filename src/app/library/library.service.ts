@@ -12,7 +12,7 @@ type BookResponseObject = Object & {
 })
 export class LibraryService {
   bookListChanged = new EventEmitter<Book[]>();
-  private allBooks: Book[] = [...]
+  private allBooks: Book[] = []
   constructor(private http: HttpClient,
     ) {}
 
@@ -116,13 +116,13 @@ fetchBooks(searchQuery: string) {
   .subscribe((searchResponse) => {
     console.log('Seach Response: ', searchResponse);
     this.allBooks = []
-    this.saveBooks(searchResponse)
+    this.saveBooks(searchResponse as BookResponseObject)
   })
 }
 
 saveBooks(books: BookResponseObject) {
   this.allBooks = books.docs.map((book) => {
-    //ToDo
+    //ToDo:transform the resonse data into our Book model object as expected.
 
     console.log({book})
 
