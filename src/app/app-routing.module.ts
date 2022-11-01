@@ -21,7 +21,7 @@ const appRoutes: Routes = [
     ],
   },
   { path: 'library', component: LibraryComponent },
-  {path: "auth", component: AuthComponent }
+  { path: "auth", component: AuthComponent }
 ];
 
 @NgModule({

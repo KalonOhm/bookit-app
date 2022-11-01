@@ -8,48 +8,48 @@ import { Subject } from 'rxjs';
 export class BookshelfService {
   // Data sources should be IMMUTABLE!
   private myBooks: Book[] = [
-    new Book(
-      'Book of Testing',
-      'Will Wilder',
-      'Mystery',
-      'https://source.unsplash.com/50x50/?mystery,book'
-    ),
-    new Book(
-      'Testing Title 2',
-      'Nolan Hovis',
-      'Science',
-      'https://source.unsplash.com/50x50/?science,book'
-    ),
-    new Book(
-      'Fantasy Test',
-      'German Cruz',
-      'Non-Fiction',
-      'https://source.unsplash.com/50x50/?fantasy,book'
-    ),
-    new Book(
-      'Fantasy Test',
-      'Lex Pryor',
-      'Math',
-      'https://source.unsplash.com/50x50/?math,book'
-    ),
-    new Book(
-      'Children of Time',
-      'Adrian Person',
-      'Sci-Fi',
-      'https://source.unsplash.com/160x150/?mystery,book.jpg'
-    ),
-    new Book(
-      'Book of Testing',
-      'Will Wilder',
-      'Mystery',
-      'https://source.unsplash.com/50x50/?mystery,book'
-    ),
-    new Book(
-      'Book of Jesting',
-      'Jill Jilder',
-      'Yretsym',
-      'https://source.unsplash.com/150x150/?mystery,book'
-    ),
+    // new Book(
+    //   'Book of Testing',
+    //   'Will Wilder',
+    //   'Mystery',
+    //   'https://source.unsplash.com/50x50/?mystery,book'
+    // ),
+    // new Book(
+    //   'Testing Title 2',
+    //   'Nolan Hovis',
+    //   'Science',
+    //   'https://source.unsplash.com/50x50/?science,book'
+    // ),
+    // new Book(
+    //   'Fantasy Test',
+    //   'German Cruz',
+    //   'Non-Fiction',
+    //   'https://source.unsplash.com/50x50/?fantasy,book'
+    // ),
+    // new Book(
+    //   'Fantasy Test',
+    //   'Lex Pryor',
+    //   'Math',
+    //   'https://source.unsplash.com/50x50/?math,book'
+    // ),
+    // new Book(
+    //   'Children of Time',
+    //   'Adrian Person',
+    //   'Sci-Fi',
+    //   'https://source.unsplash.com/160x150/?mystery,book.jpg'
+    // ),
+    // new Book(
+    //   'Book of Testing',
+    //   'Will Wilder',
+    //   'Mystery',
+    //   'https://source.unsplash.com/50x50/?mystery,book'
+    // ),
+    // new Book(
+    //   'Book of Jesting',
+    //   'Jill Jilder',
+    //   'Yretsym',
+    //   'https://source.unsplash.com/150x150/?mystery,book'
+    // ),
   ];
 
   bookSelected = new Subject<Book>();

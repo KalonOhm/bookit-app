@@ -16,14 +16,15 @@ export class BookSearchComponent implements OnInit {
   }
 
   onFetchBooks(searchQuery: string) {
-    console.log("Clicked Fetch")
-    console.log({searchQuery})
+    this.library.fetchBooks(searchQuery)
+    // console.log("Clicked Fetch")
+    // console.log({searchQuery})
 
-    const formattedQuery = searchQuery.split(' ').join('+').toLowerCase();
+    // const formattedQuery = searchQuery.split(' ').join('+').toLowerCase();
 
-    this.http.get(`http://openlibrary.org/search/json?q=${formattedQuery}`)
-    .subscribe((searchResponse) => {
-      console.log('Seach Response: ', searchResponse)
-    })
+    // this.http.get(`http://openlibrary.org/search/json?q=${formattedQuery}`)
+    // .subscribe((searchResponse) => {
+    //   console.log('Seach Response: ', searchResponse)
+    // })
   }
 }

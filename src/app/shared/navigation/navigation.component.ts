@@ -10,7 +10,7 @@ import { HttpService } from '../http/http.service';
 })
 export class NavigationComponent implements OnInit, OnDestroy {
   collapsed: boolean = true;
-  show: boolean = true;
+  show: boolean = false;
   isAuthenticated = false;
 
 
