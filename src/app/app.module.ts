@@ -22,26 +22,15 @@ import { SortBooksPipe } from './shared/pipes/sortBooks';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './shared/auth/auth.component'
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
+import { AlertComponent } from './shared/alert/alert.component';
+import { PlaceholderDirective } from './shared/directives/placeholder.directive';
+import { SharedModule } from './shared/shared.module';
+import { LibraryModule } from './library/library.module';
+import { BookshelfModule } from './bookshelf/bookshelf.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookshelfComponent,
-    BookDetailsComponent,
-    BookListComponent,
-    LibraryComponent,
-    BookSearchComponent,
-    BookComponent,
-    BookResultsComponent,
-    NavigationComponent,
-    DropdownDirective,
-    BookshelfHomeComponent,
-    BookshelfEditorComponent,
-    NotificationComponent,
-    BookFormTdComponent,
-    BookFormReactiveComponent,
-    SortBooksPipe,
-    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +38,8 @@ import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    SharedModule,
+
   ],
   providers: [
     {

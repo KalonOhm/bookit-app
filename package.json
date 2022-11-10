@@ -1,6 +1,7 @@
 {
   "name": "bookit-app",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,6 +21,7 @@
     "@angular/router": "^14.2.0",
     "bootstrap": "^4.6.2",
     "bootstrap4": "^0.0.1-security",
+    "express": "^4.18.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

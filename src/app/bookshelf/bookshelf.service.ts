@@ -58,7 +58,8 @@ export class BookshelfService {
   //Create
   saveBook(book: Book) {
     this.myBooks.push(book);
-    this.bookListChanged.next(this.myBooks.slice());
+    this.bookSelected.next(book);
+    this.bookListChanged.next(this.getBooks());
   }
 
   //Read
@@ -73,20 +74,21 @@ export class BookshelfService {
 
   //Delete
   removeBook(idx: number) {
-    if (idx !== -1) {
+    if (idx >= 0) {
+      this.bookSelected.next(this.myBooks[idx]);
       this.myBooks.splice(idx, 1);
-      this.bookListChanged.next(this.myBooks.slice());
+      this.bookListChanged.next(this.getBooks());
     }
   }
 
   addBook(book: Book) {
     this.myBooks.push(book);
-    this.bookListChanged.next(this.myBooks.slice());
+    this.bookListChanged.next(this.getBooks());
   }
 
   updateBook(idx: number, updatedBook: Book) {
     this.myBooks[idx] = updatedBook;
-    this.bookListChanged.next(this.myBooks.slice());
+    this.bookListChanged.next(this.getBooks());
   }
 
   setBooks(books: Book[]) {

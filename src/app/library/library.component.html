@@ -6,4 +6,5 @@
     <app-book-search></app-book-search>
   </div>
 </div>
-<app-notification></app-notification>
+<!-- <app-notification></app-notification> -->
+<app-alert [alertMessage]="alert" *ngIf="alert" [closeModal]="handleCloseModal()"></app-alert>
