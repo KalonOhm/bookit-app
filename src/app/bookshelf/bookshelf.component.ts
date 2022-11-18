@@ -1,6 +1,13 @@
-import { Component, ComponentFactoryResolver, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AlertComponent } from '../shared/alert/alert.component';
+import { Book } from '../shared/book/book.model';
 import { PlaceholderDirective } from '../shared/directives/placeholder.directive';
 import { BookshelfService } from './bookshelf.service';
 
@@ -12,6 +19,10 @@ import { BookshelfService } from './bookshelf.service';
 export class BookshelfComponent implements OnInit, OnDestroy {
   @ViewChild(PlaceholderDirective) alertHost: any;
   private bookSelectedSub: Subscription
+  private closeModalSub: Subscription
+  bookSelected: Book
+
+
   constructor(
     private bookshelfService: BookshelfService,
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -19,7 +30,7 @@ export class BookshelfComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.bookSelectedSub = this.bookshelfService.bookSelected.subscribe((book) => {
-      const alertMessage = `Successfully removed book $(book.title) from your personal library.`;
+      const alertMessage = `Successfully removed book ${book.title} by ${book.author} from your personal library.`;
       this.removeBookAlert(alertMessage);
     })
   }
@@ -46,11 +57,11 @@ export class BookshelfComponent implements OnInit, OnDestroy {
       hostContainerRef.clear();
     }
 
-    this.closeModalSeb = componentRef.instance.closeModal.subscribe(clearAlert);
+    this.closeModalSub = componentRef.instance.closeModal.subscribe(clearAlert);
 
     setTimeout(() => {
       if (this.closeModalSub) clearAlert();
-    })
+    }, 3000)
   }
 
 

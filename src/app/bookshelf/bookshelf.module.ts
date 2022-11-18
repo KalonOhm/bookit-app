@@ -10,7 +10,7 @@ import { BookshelfEditorComponent } from './bookshelf-editor/bookshelf-editor.co
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { BookFormTdComponent } from './book-form-td/book-form-td.component';
-import { SortBooksPipe } from '../shared/pipes/sortBooks';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,12 +18,11 @@ import { SortBooksPipe } from '../shared/pipes/sortBooks';
   declarations: [
     BookDetailsComponent,
     BookFormReactiveComponent,
-  BookFormTdComponent,
+    BookFormTdComponent,
     BookListComponent,
     BookshelfEditorComponent,
     BookshelfHomeComponent,
     BookshelfComponent,
-    SortBooksPipe
 
   ],
   imports: [
@@ -31,6 +30,8 @@ import { SortBooksPipe } from '../shared/pipes/sortBooks';
     RouterModule,
     CommonModule,
     BookshelfRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ]
 })

@@ -45,9 +45,9 @@ export class HttpService {
     //     );
     //   })
     // )
-    return this.http.get<Book[]>(this.firebaseRootUrl, {}).pipe(
+    return this.http.get< Book[] | null >(this.firebaseRootUrl, {}).pipe(
       tap((books) => {
-        this.bookshelfService.setBooks(books);
+        this.bookshelfService.setBooks(books ?? []);
       })
     )
   }

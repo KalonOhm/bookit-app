@@ -15,11 +15,13 @@ import { LibraryComponent } from './library.component';
     BookSearchComponent,
     BookResultsComponent,
 
+
   ],
   imports: [
     SharedModule,
+    CommonModule,
     RouterModule.forChild([
-      { path: 'library', component: LibraryComponent, canActivate: [AuthGuard] },
+      { path: '', component: LibraryComponent, canActivate: [AuthGuard] },
     ]),
 
   ]

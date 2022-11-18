@@ -1,14 +1,17 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Book } from 'src/app/shared/book/book.model';
 import { BookshelfService } from '../bookshelf.service';
 import { ActivatedRoute, Router } from '@angular/router'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent implements OnInit, OnDestroy {
+  private booklistSubscription: Subscription;
+
   @Output() currentSelectedBook = new EventEmitter<Book>();
 
   sortSwitcher = true;
@@ -25,7 +28,7 @@ export class BookListComponent implements OnInit {
 
   ngOnInit(): void {
     this.myBooks = this.bookshelfService.getBooks()
-    this.bookshelfService.bookListChanged.subscribe((books: Book[]) => this.myBooks = books)
+    this.booklistSubscription = this.bookshelfService.bookListChanged.subscribe((books: Book[]) => this.myBooks = books)
   }
 
   // handleBookSelected(book: Book) {
@@ -50,5 +53,8 @@ export class BookListComponent implements OnInit {
     }
   }
 
-  
+
+  ngOnDestroy() {
+    this.booklistSubscription.unsubscribe();
+  }
 }

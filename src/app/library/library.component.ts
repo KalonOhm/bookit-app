@@ -9,9 +9,9 @@ import { BookshelfService } from '../bookshelf/bookshelf.service';
 })
 export class LibraryComponent implements OnInit, OnDestroy {
   alert!: string;
-  selectedBookSubscription!: Subscription;
+  private selectedBookSubscription!: Subscription;
 
-  constructor(private bookshelfService: BookshelfService) {}
+  constructor(public bookshelfService: BookshelfService) {}
 
   ngOnInit(): void {
     this.selectedBookSubscription =
@@ -21,7 +21,7 @@ export class LibraryComponent implements OnInit, OnDestroy {
         setTimeout(this.handleCloseModal, 4000);
       });
 
-      
+
   }
 
   ngOnDestroy(): void {

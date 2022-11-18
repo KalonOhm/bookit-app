@@ -1,46 +1,42 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component';
-import { BookshelfComponent } from './bookshelf/bookshelf.component';
-import { BookDetailsComponent } from './bookshelf/book-details/book-details.component';
-import { BookListComponent } from './bookshelf/book-list/book-list.component';
-import { LibraryComponent } from './library/library.component';
-import { BookSearchComponent } from './library/book-search/book-search.component';
-import { BookComponent } from './shared/book/book.component';
-import { BookResultsComponent } from './library/book-results/book-results.component';
-import { NavigationComponent } from './shared/navigation/navigation.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
-import { BookshelfHomeComponent } from './bookshelf/bookshelf-home/bookshelf-home.component';
-import { BookshelfEditorComponent } from './bookshelf/bookshelf-editor/bookshelf-editor.component';
-import { NotificationComponent } from './shared/notification/notification.component';
-import { BookFormTdComponent } from './bookshelf/book-form-td/book-form-td.component';
-import { BookFormReactiveComponent } from './bookshelf/book-form-reactive/book-form-reactive.component';
-import { SortBooksPipe } from './shared/pipes/sortBooks';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthComponent } from './shared/auth/auth.component'
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
-import { AlertComponent } from './shared/alert/alert.component';
-import { PlaceholderDirective } from './shared/directives/placeholder.directive';
 import { SharedModule } from './shared/shared.module';
-import { LibraryModule } from './library/library.module';
-import { BookshelfModule } from './bookshelf/bookshelf.module';
+// import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    // ServiceWorkerModule.register('ngsw-worker.js', {
+    //   enabled: environment.production,
+    //   // Register the ServiceWorker as soon as the application is stable
+    //   // or after 30 seconds (whichever comes first).
+    //   registrationStrategy: 'registerWhenStable:30000'
+    // }),
 
   ],
+  bootstrap: [AppComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -48,6 +44,5 @@ import { BookshelfModule } from './bookshelf/bookshelf.module';
       multi: true,
     }
   ],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }

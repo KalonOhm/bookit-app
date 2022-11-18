@@ -16,7 +16,7 @@ export class BookSearchComponent implements OnInit {
   }
 
   onFetchBooks(searchQuery: string) {
-    this.library.fetchBooks(searchQuery)
+    this.library.fetchBooks(searchQuery);
     // console.log("Clicked Fetch")
     // console.log({searchQuery})
 

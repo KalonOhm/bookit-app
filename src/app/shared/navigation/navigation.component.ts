@@ -36,6 +36,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
   }
 
   onFetchData() {
-    this.httpService.fetchBooksFromFirebase();
+    this.httpService.fetchBooksFromFirebase().subscribe();
   }
 }
