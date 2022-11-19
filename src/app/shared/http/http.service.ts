@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { BookshelfService } from 'src/app/bookshelf/bookshelf.service';
 import { exhaustMap, take, tap } from 'rxjs';
 import { Book } from '../book/book.model';
-import { AuthService } from '../auth/auth.service';
+//import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +14,7 @@ export class HttpService {
 
   constructor(
     private http: HttpClient,
-    private bookshelfService: BookshelfService,
-    // private authService: AuthService,
+    private bookshelfService: BookshelfService // private authService: AuthService,
   ) {
     console.log(this.firebaseRootUrl);
   }
@@ -45,10 +44,10 @@ export class HttpService {
     //     );
     //   })
     // )
-    return this.http.get< Book[] | null >(this.firebaseRootUrl, {}).pipe(
+    return this.http.get<Book[] | null>(this.firebaseRootUrl, {}).pipe(
       tap((books) => {
         this.bookshelfService.setBooks(books ?? []);
       })
-    )
+    );
   }
 }

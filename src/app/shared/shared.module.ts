@@ -21,7 +21,7 @@ import { SortBooksPipe } from "./pipes/sortBooks";
     PlaceholderDirective,
     NavigationComponent,
     NotificationComponent,
-    // SortBooksPipe,
+    SortBooksPipe,
 
 
   ],
